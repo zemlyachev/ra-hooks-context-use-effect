@@ -4,14 +4,9 @@ import UsersContext from "../contexts/UsersContext";
 function List() {
   const { users, setUsers, id, setId } = useContext(UsersContext);
 
-  console.log(process.env);
-
   useEffect(() => {
     const ac = new AbortController();
-    fetch(
-      "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/hooks-context/use-effect/data/users.json",
-      { signal: ac.signal }
-    )
+    fetch(process.env.REACT_APP_USERS_URL, { signal: ac.signal })
       .then((response) => response.json())
       .then((data) => setUsers(data));
 

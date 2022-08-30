@@ -10,10 +10,9 @@ function Details() {
     if (id) {
       setState({ isLoading: true });
       const ac = new AbortController();
-      fetch(
-        `https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/hooks-context/use-effect/data/${id}.json`,
-        { signal: ac.signal }
-      )
+      fetch(process.env.REACT_APP_DETAILS_URL + id + ".json", {
+        signal: ac.signal,
+      })
         .then((response) => response.json())
         .then((data) =>
           setState((prevState) => ({
