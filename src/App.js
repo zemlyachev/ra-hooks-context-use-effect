@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Details from "./components/Details";
+import List from "./components/List";
+import UsersProvider from "./contexts/UsersProvider";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UsersProvider>
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <div className="col-3 col-sm-3 col-md-2">
+            <List />
+          </div>
+          <div className="col-5 col-sm-4 col-md-3">
+            <Details />
+          </div>
+        </div>
+      </div>
+    </UsersProvider>
   );
 }
 
